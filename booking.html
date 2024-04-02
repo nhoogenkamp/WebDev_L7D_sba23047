@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinema</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="booking.html">Booking</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="bookingcontainer">
+    <h1 id="booking">BOOKING FORM</h1>
+  </div>
+
+
+  <form name="myForm" action="boughttickets.html" method="post" onsubmit="return validateForm()">
+    <div class="form-group col-md-6">
+      <label for="inputname">Name</label>
+      <input type="Name" class="form-control" id="inputname" placeholder="Name">
+      <div id="inputname-error" class="formerror"></div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputlastname">Last Name</label>
+      <input type="lastname" class="form-control" id="inputlastname" placeholder="lastname">
+      <div id="inputlastname-error" class="formerror"></div>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputemail">Email</label>
+      <input type="email" class="form-control" id="inputemail" placeholder="Email">
+      <div id="inputemail-error" class="formerror"></div>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputphonenumber">Phonenumber</label>
+      <input type="phonenumber" class="form-control" id="inputphonenumber" placeholder="Phonenumber">
+      <div id="inputphonenumber-error" class="formerror"></div>
+    </div>
+
+
+    <div class="form-group col-md-6">
+      <label for="inputcinema">Which Cinema</label>
+      <select id="inputcinema" class="form-control">
+        <option selected>Choose...</option>
+        <option>Dublin</option>
+      </select>
+      <div id="inputcinema-error" class="formerror"></div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputquantity">How many tickets?</label>
+      <select id="inputquantity" class="form-control">
+        <option selected>Choose...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+      </select>
+      <div id="inputquantity-error" class="formerror"></div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputmovie">Which Movie</label>
+      <select id="inputmovie" class="form-control">
+        <option selected>Choose...</option>
+        <option>Dune</option>
+        <option>Fight Club</option>
+        <option>Forrest Gump</option>
+        <option>Gladiator</option>
+        <option>Good Fellas</option>
+        <option>Harry Potter</option>
+        <option>Inception</option>
+        <option>Interstellar</option>
+        <option>Pulp Fiction</option>
+        <option>Saving Private Ryan</option>
+        <option>Schindler's List</option>
+        <option>Se7en</option>
+        <option>The Dark Knight</option>
+        <option>The Departed</option>
+        <option>The Godfather</option>
+        <option>The Green Mile</option>
+        <option>The Intouchables</option>
+        <option>The Lion King</option>
+        <option>The Lord of the Rings</option>
+        <option>The Matrix</option>
+        <option>The Prestige</option>
+        <option>The Shawshank Redemption</option>
+        <option>The Silence of the Lambs</option>
+        <option>The Usual Suspects</option>
+      </select>
+      <div id="inputmovie-error" class="formerror"></div>
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputtime">What time?</label>
+      <select id="inputtime" class="form-control">
+        <option selected>Choose...</option>
+        <option>1PM</option>
+        <option>2PM</option>
+        <option>3PM</option>
+        <option>4PM</option>
+        <option>5PM</option>
+        <option>6PM</option>
+        <option>7PM</option>
+        <option>8PM</option>
+        <option>9PM</option>
+        <option>10PM</option>
+      </select>
+      <div id="inputtime-error" class="formerror"></div>
+    </div>
+    <div class="bookingcontainer">
+      <button type="submit" id="buybutton" class="btn btn-primary">Buy now</button>
+    </div>
+
+  </form>
+</body>
+
+
+</html>
