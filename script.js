@@ -4,6 +4,7 @@ then it will only display the movies with the same characters */
 function searchMovies() {
     var searchInput = document.getElementById("searchInput").value.toLowerCase();
     
+  
     var movieItems = document.querySelectorAll(".col");
     
    

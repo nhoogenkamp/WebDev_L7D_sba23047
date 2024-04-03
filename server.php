@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Connect to MySQL database
 $servername = "localhost";
@@ -21,24 +20,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Query to fetch user from database
     echo "test";
-    $sql = "SELECT id FROM cinema_users WHERE username = '$username' AND password = '$password'";
+    $sql = "SELECT user_id FROM cinema_users WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
-    // Debugging: Print the SQL query
-    echo "SQL Query: " . $sql . "<br>";
-
-    if ($result->num_rows > 0) {
+    if (mysqli_num_rows($result) > 0) {
         // Login successful
+        echo "Login successful <br>";
         $_SESSION["username"] = $username;
-        header("Location: http://localhost/WebDev_L7D_sba23047/index.php"); // Redirect to welcome page
+
+        header("Location: index.php"); 
     } else {
         // Login failed
+        echo "SQL Query: " . $sql . "<br>";
         echo "Login failed <br>";
 
         // Debugging: Print the error message
         echo "Error: " . $conn->error . "<br>";
 
-        header("Location: http://localhost/WebDev_L7D_sba23047/index.php?error=1"); // Redirect back to login page with error
+        // header("Location: http://localhost/WebDev_L7D_sba23047/index.php?error=1"); // Redirect back to login page with error
     }
 }
 

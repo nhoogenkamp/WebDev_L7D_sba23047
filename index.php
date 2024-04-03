@@ -1,3 +1,13 @@
+<?php
+// We need to use sessions, so you should always start sessions using the below code.
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: login.php');
+	exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,43 +19,21 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+ 
 </head>
 
 <body>
-    <!-- Add this button/link where you want to trigger the popup -->
-<button onclick="openPopup()">Login / Sign Up</button>
 
 <!-- The popup container -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <!-- Login form -->
-    <form id="loginForm" method="POST">
-      <!-- Login form fields (username, password, etc.) -->
-      <!-- Include fields for username and password -->
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <!-- Add a submit button -->
-      <button type="submit">Login</button>
-    </form>
-    <!-- Sign up form -->
-    <form id="signupForm" action="signup.php" method="POST">
-      <!-- Signup form fields (username, email, password, etc.) -->
-      <!-- Include fields for registration details -->
-      <input type="text" name="username" placeholder="Username">
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
-      <!-- Add a submit button -->
-      <button type="submit">Sign Up</button>
-    </form>
-  </div>
-</div>
     <header>
         <nav class="navbar">
             <ul>
                 <!--Navigation links and search input-->
                 <li><a href="index.html">Home</a></li>
                 <li><a href="booking.html">Booking</a></li>
+                <li><a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a></li>
+				<li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Search for a movie..." onkeyup="searchMovies()">
                 </div>
