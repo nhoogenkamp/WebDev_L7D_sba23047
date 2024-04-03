@@ -4,7 +4,6 @@ then it will only display the movies with the same characters */
 function searchMovies() {
     var searchInput = document.getElementById("searchInput").value.toLowerCase();
     
-  
     var movieItems = document.querySelectorAll(".col");
     
    
@@ -35,7 +34,10 @@ function hideLoginPopup() {
 
 // Call the function on page load
 window.onload = function () {
-    displayLoginPopup();
+    if not  "login"
+      displayLoginPopup();
+    else
+      hideLoginPopup
 };
 
 // Process login form submission
