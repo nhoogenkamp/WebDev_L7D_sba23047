@@ -6,6 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: login.php');
 	exit;
 }
+$user_type = isset($_SESSION['user_type']) ? $_SESSION['user_type'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 <body>
 
-<!-- The popup container -->
+
     <header>
         <nav class="navbar">
             <ul>
@@ -34,6 +35,10 @@ if (!isset($_SESSION['loggedin'])) {
                 <li><a href="booking.html">Booking</a></li>
                 <li><a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a></li>
 				<li><a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                <?php if ($user_type === 'admin') { ?>
+                    <li><a href="view_booked_movies.php">Recent Booked Movies</a></li>
+                <li><a href="admin_panel.php">Admin Panel</a></li>
+                <?php } ?>
                 <div class="search">
                     <input type="text" id="searchInput" placeholder="Search for a movie..." onkeyup="searchMovies()">
                 </div>
@@ -75,7 +80,7 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <a href="dune.html" data-actors="Timothée Chalamet, Zendaya, Rebecca Ferguson">
+                <a href="dune.php" data-actors="Timothée Chalamet, Zendaya, Rebecca Ferguson">
                     <img src="images/dunepart1.webp" class="img-fluid" alt="duneimage">
                     <h6 class="text-center">Dune</h6>
                 </a>
