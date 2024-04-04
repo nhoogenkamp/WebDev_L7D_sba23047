@@ -27,6 +27,9 @@
             </ul>
         </nav>
     </header>
+    </body>
+
+</html>
 
 <?php
 // Start the session

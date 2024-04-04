@@ -18,28 +18,6 @@ function searchMovies() {
         }
     });
 }
-// Declare username and password variables outside the event listener function
-var username, password;
-
-// Function to display the login popup
-function displayLoginPopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "block";
-}
-
-// Function to hide the login popup
-function hideLoginPopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "none";
-}
-
-// Call the function on page load
-window.onload = function () {
-    if not  "login"
-      displayLoginPopup();
-    else
-      hideLoginPopup
-};
 
 // Process login form submission
 document.getElementById("loginForm").addEventListener("submit", function(event) {
@@ -75,6 +53,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         console.error('There has been a problem with your fetch operation:', error); // Log any errors
     });
 });
+
 
 
 /* This function clears the form from all error messages */
@@ -116,11 +95,11 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         }
 
         var email = document.forms['myForm']["inputemail"].value;
-        if (email.length > 25) {
+        if (email.length > 100) {
             seterror("inputemail", "*Email length is too long");
             returnval = false;
         }
-        var phonenumber = document.forms ['myForm']["inputphonenumber"].value;
+        var phonenumber = document.forms['myForm']["inputphonenumber"].value;
         if (!(/^\d{10}$/.test(phonenumber))) {
             seterror("inputphonenumber", "*Please enter a valid 10 digit phone number");
             returnval = false;

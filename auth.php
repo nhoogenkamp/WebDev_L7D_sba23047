@@ -13,6 +13,7 @@ if ( mysqli_connect_errno() ) {
 	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
+
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
 if ( !isset($_POST['username'], $_POST['password']) ) {
 	// Could not get the data that should have been sent.
@@ -39,7 +40,7 @@ if ($stmt = $con->prepare('SELECT user_id, password, user_type FROM cinema_users
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
             $_SESSION['user_type'] = $user_type;
-            header('Location: index.php');
+            header('Location: captcha.php');
         } else {
             // Incorrect password
             header('Location: login.php');

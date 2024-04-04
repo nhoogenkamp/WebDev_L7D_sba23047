@@ -1,4 +1,7 @@
 <?php
+// Include the PHPMailer autoload file
+require 'vendor/autoload.php';
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to MySQL database
@@ -22,7 +25,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $con->close();
 
-    // Redirect back to the booking page or display a success message
+    // Create a new PHPMailer instance
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+    // SMTP configuration
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'cinemasba23047@gmail.com'; // Your Gmail address
+    $mail->Password = 'sba23047'; // Your Gmail password
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    // Sender and recipient settings
+    $mail->setFrom('cinemasba23047@gmail.com', 'Niels'); // Sender's email and name
+    $mail->addAddress($_POST['inputemail']); // Recipient's email
+    $mail->addReplyTo('cinemasba23047@gmail.com', 'Niels'); // Reply to
+
+    // Email content
+    $mail->isHTML(true);
+    $mail->Subject = 'Movie Booking Confirmation';
+    $mail->Body = '
+    <h1>Thank you for booking!</h1>
+    <p>Your movie booking has been confirmed. Here are the details:</p>
+    <ul>
+        <li>Movie: ' . $_POST['inputmovie'] . '</li>
+        <li>Time: ' . $_POST['inputtime'] . '</li>
+        <!-- Add more booking details as needed -->
+    </ul>
+    <p>We look forward to seeing you at the cinema!</p>
+    ';
+
+    // Send email
+    if ($mail->send()) {
+        echo 'Email confirmation sent successfully!';
+    } else {
+        echo 'Failed to send email confirmation.';
+        echo 'Mailer Error: ' . $mail->ErrorInfo;
+    }
+
+    // Redirect back to the booking page
     header('Location: boughttickets.html');
     exit;
 } else {
@@ -30,3 +72,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header('Location: booking.html');
     exit;
 }
+?>
